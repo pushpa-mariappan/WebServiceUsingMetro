@@ -1,0 +1,16 @@
+Metro is for implementing jaxws for enterprise. Implementation jar is avaliable separately, which needs to be downloaded.
+https://metro.java.net/2.3.1/. 
+Jaxwsri and metro implementation are same. Only the dependency jars will differ for each implementation.
+You need to include them in WEB-INF\lib folder. 
+In eclipse, create dynamic web project, add metro lib in WEB-INF\lib folder
+Create the SEI and SIB classes
+Change the web.xml, to give skeleton url. Skeleton will be the java servlet.
+Configure  web service enpoint url in sun-jaxws.xml(which is the webservice config file for jaxws-ri based webservice)
+Run the SIB class to deploy the webservice.
+Get the wsdl from endpointurl?wsdl
+For Client:
+create again a dynamic web project
+generate the stub using wsimport giving the wsdl url with -keep to get the .java files
+copy the generated class to project src folder.(SEI, SIB, two class for each operation, ObjectFactory and package-info)
+create the client class.
+run client as java application and get the output printed.
